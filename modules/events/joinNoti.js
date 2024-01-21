@@ -17,7 +17,7 @@ const { join } = global.nodemodule["path"];
 const path = join(__dirname, "cache", "joinGif");
 if (existsSync(path)) mkdirSync(path, { recursive: true });	
 
-const path2 = join(__dirname, "cache", "joinGif", "randomgif");
+const path2 = join(__dirname, "cache", "joinGif");
 if (!existsSync(path2)) mkdirSync(path2, { recursive: true });
 
    return;
@@ -77,11 +77,11 @@ const hours = moment.tz("Asia/Dhaka").format("hh");
 
 			if (existsSync(path)) mkdirSync(path, { recursive: true });
 
-			const randomPath = readdirSync(join(__dirname, "cache", "joinGif", "randomgif"));
+			const randomPath = readdirSync(join(__dirname, "cache", "joinGif"));
 
 			if (existsSync(pathGif)) formPush = { body: msg, attachment: createReadStream(pathGif), mentions }
 			else if (randomPath.length != 0) {
-				const pathRandom = join(__dirname, "cache", "joinGif", "randomgif", `${randomPath[Math.floor(Math.random() * randomPath.length)]}`);
+				const pathRandom = join(__dirname, "cache", "joinGif", `${randomPath[Math.floor(Math.random() * randomPath.length)]}`);
 				formPush = { body: msg, attachment: createReadStream(pathRandom), mentions }
 			}
 			else formPush = { body: msg, mentions }
